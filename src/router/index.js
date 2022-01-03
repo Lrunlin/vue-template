@@ -5,11 +5,9 @@ import {
 } from 'vue-router';
 import Home from '../Layout/Home.vue'
 
-const routes = [{
-  path: '/',
-  name: 'Home',
-  component: ()=>import('@/Layout/Home.vue')
-}, ]
+const routes = [
+  
+ ]
 
 const router = createRouter({
   history: createWebHashHistory(),
