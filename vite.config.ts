@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, UserConfigExport } from "vite";
 import vue from "@vitejs/plugin-vue";
 import Pages from "vite-plugin-pages";
 import path from "path";
@@ -6,6 +6,9 @@ import vueJsx from "@vitejs/plugin-vue-jsx";
 import generateSitemap from "vite-ssg-sitemap";
 import Layouts from "vite-plugin-vue-layouts";
 
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+// import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 export default defineConfig({
   resolve: {
@@ -41,6 +44,16 @@ export default defineConfig({
       extensions: ["vue", "tsx"],
     }),
     Layouts(),
+    AutoImport({
+      imports: ["vue", "vue-router", "vuex"],
+      dts: "src/auto-import.d.ts",
+    }),
+    Components({
+      dirs: ["src/components"], // 目标文件夹
+      extensions: ["vue", "jsx"], // 文件类型
+      dts: "src/components.d.ts", // 输出文件，里面都是一些import的组件键值对
+      // resolvers: [ElementPlusResolver()],
+    }),
   ],
   ssgOptions: {
     script: "async",
@@ -52,4 +65,4 @@ export default defineConfig({
       });
     },
   },
-} as any);
+} as UserConfigExport);
