@@ -2,6 +2,10 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   setup() {
-    return () => <div>404</div>;
+    return () => (
+      <>
+        <div>404</div>
+      </>
+    );
   },
 });
