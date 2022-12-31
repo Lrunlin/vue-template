@@ -1,6 +1,7 @@
 import axios from "axios";
 
-axios.defaults.baseURL = process.env.VITE_API_HOST;
+axios.defaults.baseURL = import.meta.env.VITE_API_HOST;
+
 axios.interceptors.request.use(
   (config: any) => {
     config.headers.authorization = localStorage.getItem("token");

@@ -47,12 +47,23 @@ export default defineConfig({
     AutoImport({
       imports: ["vue", "vue-router", "vuex"],
       dts: "src/auto-import.d.ts",
+      // resolvers: [
+      //   ElementPlusResolver({
+      //     ssr: true,
+      //     importStyle: "sass",
+      //   }),
+      // ],
     }),
     Components({
       dirs: ["src/components"], // 目标文件夹
       extensions: ["vue", "jsx"], // 文件类型
       dts: "src/components.d.ts", // 输出文件，里面都是一些import的组件键值对
-      // resolvers: [ElementPlusResolver()],
+      // resolvers: [
+      //   ElementPlusResolver({
+      //     ssr: true,
+      //     importStyle: "sass",
+      //   }),
+      // ],
     }),
   ],
   ssgOptions: {
