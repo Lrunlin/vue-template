@@ -49,7 +49,7 @@ export default defineConfig({
       dts: "src/auto-import.d.ts",
       // resolvers: [
       //   ElementPlusResolver({
-      //     ssr: true,
+      //     ssr: process.env.npm_lifecycle_event=="build",
       //     importStyle: "sass",
       //   }),
       // ],
@@ -60,7 +60,7 @@ export default defineConfig({
       dts: "src/components.d.ts", // 输出文件，里面都是一些import的组件键值对
       // resolvers: [
       //   ElementPlusResolver({
-      //     ssr: true,
+      //     ssr: process.env.npm_lifecycle_event=="build",
       //     importStyle: "sass",
       //   }),
       // ],
